@@ -8,17 +8,12 @@ const routes = [
     component: HomeView,
     redirect:'/index',
     children:[
-      {path:'/login',component:() => import( '../views/admin/LoginView.vue')},
+      {path:'/index',component:() => import( '../views/web/IndexView.vue')},
+      {path:'/admin',component:() => import( '../views/admin/AdminView.vue')},
     ]
   },
   {
-    path: '/admin',
-    name: 'about',
-
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import( '../views/admin/AdminView.vue'),
+    path: '/login', component: () => import( '../views/admin/LoginView.vue'),
   }
 ]
 

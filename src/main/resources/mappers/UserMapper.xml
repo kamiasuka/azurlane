@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ask.azurlane.dao.mapper.UserMapper">
+<!--用户登录-->
+    <select id="getInfoByUsername" resultType="ask.azurlane.commom.pojo.vo.UserVO">
+        select * from user_info where username = #{username}
+    </select>
+</mapper>

@@ -3,7 +3,6 @@ package ask.azurlane.commom.exception;
 import ask.azurlane.commom.exception.ServiceException;
 import ask.azurlane.commom.response.JsonResult;
 import ask.azurlane.commom.response.StatusCode;
-import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -71,16 +70,6 @@ public class GlobalExceptionHandler {
     public JsonResult doHandleMethodArgumentNotValidException(MethodArgumentNotValidException ex){
         //验证pojo类型参数时,获取提示消息:ex.getFieldError().getDefaultMessage();
         String message = ex.getFieldError().getDefaultMessage();
-
-        return new JsonResult(StatusCode.VALIDATED_ERROR, message);
-    }
-
-    /**
-     * 第4个异常处理方法：处理Validation校验非POJO类参数异常
-     */
-    @ExceptionHandler
-    public JsonResult doHandleConstraintViolationException(ConstraintViolationException ex){
-        String message = ex.getMessage().split(":")[1].trim();
 
         return new JsonResult(StatusCode.VALIDATED_ERROR, message);
     }

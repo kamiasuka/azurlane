@@ -14,6 +14,6 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(Interceptor).addPathPatterns("/**").excludePathPatterns("v1/excel/download/");
+        registry.addInterceptor(Interceptor).addPathPatterns("/**").excludePathPatterns("v1/login");
     }
 }

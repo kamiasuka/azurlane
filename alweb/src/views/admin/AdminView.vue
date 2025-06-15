@@ -2,7 +2,7 @@
   <div class="common-layout">
     <el-container>
       <el-header style="background-color: #368;line-height: 60px;">
-        <h1 style="font-size: 30px;color: white;margin: 0">烘焙坊后台管理系统
+        <h1 style="font-size: 30px;color: white;margin: 0">后台管理系统
           <span style="float: right;font-size: 20px">欢迎{{user.nickname}}回来!
             <el-button @click="logout()">退出登录</el-button>
           </span>
