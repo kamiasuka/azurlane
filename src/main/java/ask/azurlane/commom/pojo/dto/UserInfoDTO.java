@@ -3,7 +3,7 @@ package ask.azurlane.commom.pojo.dto;
 import lombok.Data;
 
 @Data
-public class UserLoginInfoDTO {
+public class UserInfoDTO {
     private String id;
     private String username;
     private String password;

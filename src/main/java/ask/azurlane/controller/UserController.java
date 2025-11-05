@@ -1,8 +1,10 @@
 package ask.azurlane.controller;
 
+import ask.azurlane.commom.pojo.dto.UserInfoDTO;
 import ask.azurlane.commom.pojo.dto.UserLoginInfoDTO;
 import ask.azurlane.commom.pojo.vo.LoginResultVO;
 import ask.azurlane.commom.response.JsonResult;
+import ask.azurlane.commom.response.StatusCode;
 import ask.azurlane.service.IUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,5 +32,24 @@ public class UserController {
         LoginResultVO loginResultVO = iUserService.Login(userLoginInfoDTO);
         return JsonResult.ok(loginResultVO);
     }
+
+    @PostMapping("/addUser")
+    public JsonResult addUser(UserInfoDTO UserInfoDTO) {
+        int result= iUserService.addUser(UserInfoDTO);
+        if (result > 0)
+            return JsonResult.ok();
+        else
+            return JsonResult.fail(StatusCode.OPERATION_FAILED,null);
+    }
+
+    @PostMapping("/login")
+    public JsonResult removeUser(UserInfoDTO userInfoDTO) {
+        int result = iUserService.removeUser(userInfoDTO);
+        if (result > 0)
+            return JsonResult.ok();
+        else
+            return JsonResult.fail(StatusCode.OPERATION_FAILED,null);
+    }
+
 
 }

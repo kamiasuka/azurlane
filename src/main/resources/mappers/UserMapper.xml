@@ -3,7 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ask.azurlane.dao.mapper.UserMapper">
-<!--用户登录-->
+    <!--用户新增-->
+    <insert id="addUser">
+        insert into user_info (id,uaername,password,identity) values (#{id}, #{username}, #{password}, #{identity})
+    </insert>
+    <!--用户删除-->
+    <delete id="removeUser">
+        delete from user_info where id = #{id} and username = #{username}
+    </delete>
+    <!--用户登录-->
     <select id="getInfoByUsername" resultType="ask.azurlane.commom.pojo.vo.UserVO">
         select * from user_info where username = #{username}
     </select>
